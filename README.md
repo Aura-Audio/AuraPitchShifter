@@ -8,6 +8,10 @@ Real-time browser pitch shifter for microphone or test tone — built with plain
 
 ---
 
+| Release | Cloudflare Hosted Demo  |
+|--------|--------|
+| v1 | [Cloudflare Hosted Demo](https://v1-aurapitch.pages.dev/)  |
+
 ## Overview
 
 **Live Pitch Shift** is a single-page web app that pitch-shifts audio in real time using the Web Audio API and a custom `AudioWorklet` processor. Point it at your microphone for live voice/instrument processing, or use the built-in test oscillator to hear the effect without any input hardware.
