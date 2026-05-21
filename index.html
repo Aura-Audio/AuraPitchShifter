@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Pitch Shift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Live Pitch Shift</h1>
+        <p>Real-time pitch shifting for microphone or test tone — not frequency shifting.</p>
+      </header>
+
+      <main>
+        <section class="card">
+          <div id="status" class="status idle">Stopped</div>
+
+          <h2>Input source</h2>
+          <div class="source-row">
+            <label>
+              <input type="radio" name="source" id="source-mic" value="mic" checked />
+              Live microphone
+            </label>
+            <label>
+              <input type="radio" name="source" id="source-test" value="test" />
+              Test tone
+            </label>
+          </div>
+
+          <div id="test-controls" class="test-controls" hidden>
+            <div class="field">
+              <label>
+                Frequency
+                <span id="freq-label">440 Hz</span>
+              </label>
+              <input type="range" id="test-freq" min="80" max="2000" step="1" value="440" />
+            </div>
+            <div class="field">
+              <label for="test-wave">Waveform</label>
+              <select id="test-wave">
+                <option value="sine">Sine</option>
+                <option value="square">Square</option>
+                <option value="sawtooth">Sawtooth</option>
+                <option value="triangle">Triangle</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" id="start-btn" class="btn-primary">Start</button>
+            <button type="button" id="stop-btn" class="btn-secondary">Stop</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Pitch</h2>
+          <div class="field">
+            <label>
+              Semitones
+              <span id="pitch-label">+0 st · +0 ct</span>
+            </label>
+            <input type="range" id="semitones" min="-24" max="24" step="1" value="0" />
+          </div>
+          <div class="field">
+            <label>
+              Fine tune (cents)
+              <span id="ratio-label">×1.000</span>
+            </label>
+            <input type="range" id="cents" min="-100" max="100" step="1" value="0" />
+          </div>
+          <div class="presets">
+            <button type="button" id="preset-down" class="btn-ghost">−7 st</button>
+            <button type="button" id="preset-reset" class="btn-ghost">Reset</button>
+            <button type="button" id="preset-up" class="btn-ghost">+7 st</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Mix</h2>
+          <div class="field">
+            <label>
+              Shifted output level
+              <span>100%</span>
+            </label>
+            <input type="range" id="wet-dry" min="0" max="100" step="1" value="90" />
+          </div>
+        </section>
+
+        <p class="note">
+          <strong>Pitch shift vs frequency shift:</strong> This app changes musical pitch (like
+          speeding tape in overlapping grains) while keeping timing roughly natural. A frequency
+          shifter adds a fixed offset in Hz and alters timbre differently. Use headphones to avoid
+          feedback when using the mic.
+        </p>
+      </main>
+
+      <footer>Static site — deploy to Cloudflare Pages</footer>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
