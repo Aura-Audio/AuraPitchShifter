@@ -1,4 +1,4 @@
-# Live Pitch Shift
+# AuraPitchShifter
 
 Real-time browser pitch shifter for microphone or test tone — built with plain HTML, CSS, and JavaScript.
 
